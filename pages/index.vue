@@ -1,13 +1,13 @@
 <template>
   <v-layout column justify-center align-center>
     <v-flex xs12 sm8>
-      <v-card>
+      <v-card min-width=400>
         <v-card-title>
           <h1>Nuxt Chat</h1>
         </v-card-title>
         <v-card-text>
           <v-form ref="form" v-model="valid" lazy-validation>
-            <v-text-field v-model="name" :counter="10" :rules="nameRules" label="Your Name" required></v-text-field>
+            <v-text-field v-model="name" :counter="16" :rules="nameRules" label="Your Name" required></v-text-field>
             <v-text-field v-model="room" :rules="roomRules" label="Type the room" required></v-text-field>
             <v-btn :disabled="!valid" color="primary" class="mr-4" @click="submit">Enter</v-btn>
           </v-form>
@@ -29,33 +29,17 @@
       valid: true,
       name: '',
       nameRules: [
-        v => !!v || 'Name is required',
-        v => (v && v.length <= 10) || 'Name must be less than 10 characters',
+        v => !!v || 'Enter Your name!',
+        v => (v && v.length <= 16) || 'Name must be less than 16 characters',
       ],
-      email: '',
-      emailRules: [
-        v => !!v || 'E-mail is required',
-        v => /.+@.+\..+/.test(v) || 'E-mail must be valid',
-      ],
-      select: null,
-      items: [
-        'Item 1',
-        'Item 2',
-        'Item 3',
-        'Item 4',
-      ],
-      checkbox: false,
+      room: '',
+      roomRules: [v => !!v || 'Type the room',],
     }),
-
     methods: {
-      validate () {
-        this.$refs.form.validate()
-      },
-      reset () {
-        this.$refs.form.reset()
-      },
-      resetValidation () {
-        this.$refs.form.resetValidation()
+      submit() {
+        if(this.$refs.form.validate()) {
+
+        }
       },
     },
   }
