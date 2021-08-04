@@ -7,7 +7,7 @@ const io = require('socket.io')(server)
 io.on('connection', socket => {
     console.log('IO connected')
 
-    socket.broadcast.emit('newMessage', {
+    socket.emit('newMessage', {
         text: 'WHAT'
     })
 })
