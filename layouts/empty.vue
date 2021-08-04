@@ -1,9 +1,9 @@
 <template>
 	<v-app app dark>
-		<v-content>
+		<v-main>
 			<v-container fluid>
 				<nuxt/>
 			</v-container>
-		</v-content>
+		</v-main>
 	</v-app>
 </template>
