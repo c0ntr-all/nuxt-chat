@@ -21,6 +21,9 @@
 import {mapMutations} from 'vuex'
   export default {
     layout: 'empty',
+    head: {
+      title: 'Welcome to Nuxt Chat',
+    },
     sockets: {
       connect: function () {
         console.log('socket connected')
