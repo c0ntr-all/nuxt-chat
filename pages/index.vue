@@ -48,7 +48,7 @@ import {mapMutations} from 'vuex'
             room: this.room
           };
 
-          this.socket.emit('userJoined', user, data => {
+          this.$socket.client.emit('userJoined', user, data => {
             if(typeof data === 'string') {
               console.error(data)
             }else{
