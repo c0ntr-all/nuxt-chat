@@ -2,16 +2,13 @@
   <v-app app dark>
     <v-navigation-drawer app v-model="drawer">
       <v-list subheader>
-        <v-subheader>Recent chat</v-subheader>
-        <v-list-item v-for="chat in recent" :key="chat.title">
-          <v-list-item-avatar>
-            <v-img :alt="`${chat.title} avatar`" :src="chat.avatar"></v-img>
-          </v-list-item-avatar>
+        <v-subheader>Chat room users list</v-subheader>
+        <v-list-item v-for="u in users" :key="u.id" @click.prevent>
           <v-list-item-content>
-            <v-list-item-title v-text="chat.title"></v-list-item-title>
+            <v-list-item-title>{{u.name}}</v-list-item-title>
           </v-list-item-content>
           <v-list-item-icon>
-            <v-icon :color="chat.active ? 'deep-purple accent-4' : 'grey'">
+            <v-icon :color="u.id === 2 ? 'primary' : 'grey'">
               mdi-message-outline
             </v-icon>
           </v-list-item-icon>
@@ -37,7 +34,11 @@
 import {mapState} from 'vuex'
 export default {
   data: () => ({
-    drawer: true
+    drawer: true,
+    users: [
+      {id: 1, name: 'User 1'},
+      {id: 2, name: 'User 2'}
+    ]
   }),
   computed: mapState(['user']),
   methods: {
