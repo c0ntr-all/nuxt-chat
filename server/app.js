@@ -12,9 +12,11 @@ io.on('connection', socket => {
         if(!data.name || !data.room) {
             return cb('Wrong data')
         }
+        socket.join(data.room)
 
         cb({userId: socket.id})
         socket.emit('newMessage', m('admin', `Welcome ${data.name}`))
+        socket.broadcast.to(data.room).emit('newMessage', m('admin', `User ${data.name} logged in`))
     })
 
     socket.on('createMessage', data => {
