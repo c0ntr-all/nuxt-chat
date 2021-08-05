@@ -1,5 +1,6 @@
 export const state = () => ({
-  user: {}
+  user: {},
+  messages: []
 })
 
 export const mutations = {
@@ -8,6 +9,7 @@ export const mutations = {
   },
   clearData(state) {
     state.user = {}
+    state.messages = []
   }
 }
 

@@ -1,5 +1,10 @@
 <template>
-  <h1>Chat Page {{user.name}}</h1>
+  <div>
+    <ul>
+      {{/*m.text - temporarily for testing*/}}
+      <li v-for="m in messages" :key="m.text">{{m.text}}</li>
+    </ul>
+  </div>
 </template>
 
 <script>
@@ -11,6 +16,6 @@ export default {
       title: `Room ${this.user.room}`
     }
   },
-  computed: mapState(['user'])
+  computed: mapState(['user', 'messages'])
 };
 </script>
