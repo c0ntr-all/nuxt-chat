@@ -22,11 +22,11 @@
       </v-btn>
       <v-toolbar-title>Chat Rooms {{user.room}}</v-toolbar-title>
     </v-app-bar>
-    <v-content>
+    <v-main>
       <div>
         <nuxt/>
       </div>
-    </v-content>
+    </v-main>
   </v-app>
 </template>
 

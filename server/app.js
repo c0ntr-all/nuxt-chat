@@ -8,7 +8,7 @@ const m = (name, text, id) => ({name, text, id})
 
 io.on('connection', socket => {
     
-    socket.on('userjoined', (data, cb) => {
+    socket.on('userJoined', (data, cb) => {
         if(!data.name || !data.room) {
             return cb('Wrong data')
         }
@@ -25,10 +25,6 @@ io.on('connection', socket => {
                 text: data.text + ' SERVER'
             })
         }, 500)
-    })
-
-    socket.emit('newMessage', {
-        text: 'WHAT'
     })
 })
 

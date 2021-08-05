@@ -11,7 +11,13 @@ export const mutations = {
     state.user = {}
     state.messages = []
   },
-  SOCKET_newMessage(state, message) {
+  addMessage(state, message) {
     state.messages.push(message)
+  }
+}
+
+export const actions = {
+  SOCKET_newMessage({commit}, data) {
+    commit("addMessage", data)
   }
 }
