@@ -9,7 +9,7 @@
       />
     </div>
     <div class="c-form">
-
+      <ChatForm/>
     </div>
   </div>
 </template>
@@ -17,6 +17,7 @@
 <script>
 import {mapState} from 'vuex'
 import Message from '@/components/Message'
+import ChatForm from '@/components/ChatForm'
 export default {
   middleware: ['chat'],
   head() {
@@ -24,7 +25,7 @@ export default {
       title: `Room ${this.user.room}`
     }
   },
-  components: { Message },
+  components: { Message, ChatForm },
   computed: mapState(['user', 'messages'])
 };
 </script>
