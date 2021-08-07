@@ -11,7 +11,7 @@ class USers {
     return this.users.find(user => user.id === id)
   }
 
-  removed(id) {
+  remove(id) {
     const user = this.get(id);
 
     if(user) {
