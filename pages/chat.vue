@@ -24,9 +24,9 @@ export default {
   computed: mapState(['user', 'messages']),
   watch: {
     messages() {
-      setTimeout(()) => {
+      setTimeout(() => {
         this.$refs.block.scrollTop = this.$refs.block.scrollHeight
-      }
+      });
     }
   }
 };

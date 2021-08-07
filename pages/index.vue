@@ -4,7 +4,7 @@
       <v-card min-width=400>
           <v-snackbar v-model="snackbar" :timeout="6000" top>
             {{ message }}
-            <v-btn color="pink" flat @click="snakcbar = false">Close</v-btn>
+            <v-btn color="pink" text @click="snakcbar = false">Close</v-btn>
           </v-snackbar>
         <v-card-title>
           <h1>Nuxt Chat</h1>
