@@ -2,6 +2,10 @@
   <v-layout column justify-center align-center>
     <v-flex xs12 sm8>
       <v-card min-width=400>
+          <v-snackbar v-model="snackbar" :timeout="6000" top>
+            {{ message }}
+            <v-btn color="pink" flat @click="snakcbar = false">Close</v-btn>
+          </v-snackbar>
         <v-card-title>
           <h1>Nuxt Chat</h1>
         </v-card-title>
@@ -31,6 +35,8 @@ import {mapMutations} from 'vuex'
     },
     data: () => ({
       valid: true,
+      snackbar: false,
+      message: '',
       name: '',
       nameRules: [
         v => !!v || 'Enter Your name!',
@@ -39,6 +45,15 @@ import {mapMutations} from 'vuex'
       room: '',
       roomRules: [v => !!v || 'Type the room',],
     }),
+    mounted() {
+      const {message} = this.$route.query;
+      if(message === 'noUser') {
+        this.message = 'Enter your data'
+      }else if(message === 'leftChat') {
+        this.message = 'You left the chat';
+      }
+      this.snackbar = !!this.message
+    },
     methods: {
       ...mapMutations(['setUser']),
       submit() {
