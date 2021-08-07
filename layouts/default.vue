@@ -1,6 +1,6 @@
 <template>
   <v-app app dark>
-    <v-navigation-drawer app v-model="drawer" mobile-break-point="650">
+    <v-navigation-drawer app v-model="drawer" mobile-breakpoint="650">
       <v-list subheader>
         <v-subheader>Chat room users list</v-subheader>
         <v-list-item v-for="u in users" :key="u.id" @click.prevent>
