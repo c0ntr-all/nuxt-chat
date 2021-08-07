@@ -45,6 +45,13 @@ io.on('connection', socket => {
     }
     cb();
   })
+
+  socket.on('disconnect', () => {
+    const user = users.remove(socket.id)
+    if(user) {
+      io.to(user.room).emit('newMessage', m('admin', `User ${user.name} left`))
+    }
+  })
 })
 
 module.exports = {
