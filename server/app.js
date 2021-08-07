@@ -16,6 +16,7 @@ io.on('connection', socket => {
 
         cb({userId: socket.id})
         socket.emit('newMessage', m('admin', `Welcome ${data.name}`))
+        socket.emit('newMessage', m('TEST', 'Добро пожаловать!'))
         socket.broadcast.to(data.room).emit('newMessage', m('admin', `User ${data.name} logged in`))
     })
 
