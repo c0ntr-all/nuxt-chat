@@ -24,7 +24,7 @@
   }
 </script>
 
-<style lang="stylus" scoped>
+<style scoped>
 .system {
   margin-bottom: 1rem;
 
